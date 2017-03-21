@@ -1,0 +1,84 @@
+{% extends 'layout.html' %}
+
+{% block title %}Your Trip{% endblock %}
+
+{% block content %}
+<div id="app" class="clearfix">
+  <div class="map-container col-sm-8 col-lg-9">
+    <div>
+      <div id="map-canvas"></div>
+    </div>
+  </div>
+  <div id="control-panel" class="col-sm-4 col-lg-3 clearfix">
+    <div class="col-xs-6 col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-body" id="options-panel">
+          <div>
+            <h4>Hotels</h4>
+            <select data-type="hotel" id="hotel-choices">
+
+            </select>
+            <button data-action="add" class="btn btn-primary btn-circle pull-right">+</button>
+          </div>
+          <div>
+            <h4>Restaurants</h4>
+            <select data-type="restaurant" id="restaurant-choices">
+
+            </select>
+
+            <button data-action="add" class="btn btn-primary btn-circle pull-right">+</button>
+          </div>
+          <div>
+            <h4>Activities</h4>
+            <select data-type="activity" id="activity-choices">
+
+            </select>
+            <button data-action="add" class="btn btn-primary btn-circle pull-right">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-12">
+      <h3>
+        <span id="day-title">
+        </span>
+      </h3>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+
+          <div class="day-buttons">
+          </div>
+
+        </div>
+
+        <div class="panel-body" id="itinerary">
+          <div>
+            <h4>My Hotel</h4>
+            <ul data-type="hotel" class="list-group">
+            </ul>
+          </div>
+          <div>
+            <h4>My Restaurants</h4>
+            <ul data-type="restaurant" class="list-group">
+            </ul>
+          </div>
+          <div>
+            <h4>My Activities</h4>
+            <ul data-type="activity" class="list-group">
+            </ul>
+          </div>
+
+        </div> <!-- id=itinerary -->
+
+      </div> <!-- panel panel-default -->
+    </div> <!-- div class col-small -->
+
+  </div>
+</div>
+<script>
+  var hotels = {{ hotels | dump | safe }};
+  var restaurants = {{ restaurants | dump | safe }};
+  var activities = {{ activities | dump | safe }};
+</script>
+
+{% endblock %}
