@@ -28,7 +28,8 @@ var attractionModule = (function(){
 
     var self = this;
     $button.on('click', function(){
-      self.hide();
+      //self.hide();
+      tripModule.removeFromCurrent(self);
     });
     return this;
   }
@@ -50,7 +51,7 @@ var attractionModule = (function(){
   }
 
   Attraction.prototype.hide = function(){
-    this.itineraryItem.detach();
+    this.$itineraryItem.detach();
     mapModule.hideMarker(this.marker);
   }
 

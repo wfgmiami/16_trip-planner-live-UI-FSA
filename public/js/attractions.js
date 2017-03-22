@@ -26,6 +26,13 @@ var attractionsModule = (function (){
       }else{
         throw Error('unknown attraction type')
       }
+    },
+    getEnhanced: function(databaseAttraction){
+      var type = databaseAttraction.type;
+      var id = databaseAttraction.id;
+      var found = publicAPI.getByTypeAndId(type,id);
+      if (found) return found;
+      throw Error('enhanced version not found', databaseAttraction);
     }
   }
   return publicAPI;

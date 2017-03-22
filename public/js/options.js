@@ -21,7 +21,7 @@ $optionsPanel.on('click', 'button[data-action="add"]', function(){
   var type = $select.data('type');
   var name = $select.find(':selected').text();
   var attraction = attractionsModule.getByTypeAndId(type,id)
-  attraction.show()
+  tripModule.addToCurrent(attraction)
 })
 
 
